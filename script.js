@@ -75,9 +75,15 @@ const screenCorrector = () => {
     const width = window.innerWidth;
     if(width < 1000){
         document.getElementById("main-body").style.paddingTop = "4em";
-        document.getElementById("sec-colon").hidden = true;
-        document.getElementById("seconds").hidden = true;
-        document.getElementById("minute-colon").hidden = !document.getElementById("minute-colon").hidden;
+        // document.getElementById("sec-colon").hidden = !document.getElementById("sec-colon").hidden;
+        // document.getElementById("seconds").hidden = true;
+        // document.getElementById("minute-colon").hidden = !document.getElementById("minute-colon").hidden;
+        document.getElementById("sec-colon").style.fontSize = ".5em";
+        document.getElementById("seconds").style.fontSize = ".5em";
+        document.getElementById("sec-colon").style.paddingTop = "2.15em";
+        document.getElementById("seconds").style.paddingTop = "2.15em";
+        ampm.style.fontSize = ".5em";
+        ampm.style.paddingTop = "2.15em";
 
         mainTime.querySelectorAll("div>h1").forEach((element) => {
             element.style.fontSize = "3em"; 
@@ -91,6 +97,13 @@ const screenCorrector = () => {
         document.getElementById("sec-colon").hidden = false;
         document.getElementById("seconds").hidden = false;
         document.getElementById("minute-colon").hidden = false;
+
+        document.getElementById("sec-colon").style.fontSize = "";
+        document.getElementById("seconds").style.fontSize = "";
+        document.getElementById("sec-colon").style.paddingTop = "";
+        document.getElementById("seconds").style.paddingTop = "";
+        ampm.style.fontSize = "";
+        ampm.style.paddingTop = "";
 
         mainTime.querySelectorAll("div>h1").forEach((element) => {
             element.style.fontSize = "10em"; 

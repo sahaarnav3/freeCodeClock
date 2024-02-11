@@ -14,6 +14,13 @@ const month = ["January", "February", "March", "April", "May", "June", "July", "
 const year = new Date().getFullYear();
 document.getElementById("date-container").innerHTML = `<h1>${date} ${month[new Date().getMonth()]}, ${year}</h1>`;
 
+// time things
+const tempSec = new Date().getSeconds();
+const tempMin = new Date().getMinutes();
+const tempHour = new Date().getHours();
+hours.innerHTML = tempHour < 10 ? `<h1>0${tempHour}</h1>` : `<h1>${tempHour}</h1>`;
+minutes.innerHTML = tempMin < 10 ? `<h1>0${tempMin}</h1>` : `<h1>${tempMin}</h1>`;
+seconds.innerHTML = tempSec < 10 ? `<h1>0${tempSec}</h1>` : `<h1>${tempSec}</h1>`;
 
 const amtopm = () => {
     if(checkbox.checked){
@@ -30,23 +37,24 @@ checkbox.addEventListener("change", amtopm);
 
 const twentyfour = () => {
 
-    const tempSec = new Date().getSeconds();
-    const tempMin = new Date().getMinutes();
-    const tempHour = new Date().getHours();
+    let tempSec = new Date().getSeconds();
+    let tempMin = new Date().getMinutes();
+    let tempHour = new Date().getHours();
     hours.innerHTML = tempHour < 10 ? `<h1>0${tempHour}</h1>` : `<h1>${tempHour}</h1>`;
     if(tempSec == 0){
         seconds.innerHTML = `<h1>60</h1>`;
         minutes.innerHTML = tempMin < 10 ? `<h1>0${tempMin}</h1>` : `<h1>${tempMin}</h1>`;
     } else if (tempSec < 10){
         seconds.innerHTML = `<h1>0${tempSec}</h1>`;
+        minutes.innerHTML = tempMin < 10 ? `<h1>0${tempMin}</h1>` : `<h1>${tempMin}</h1>`;
     }else {
         seconds.innerHTML = `<h1>${tempSec}</h1>`;
     }
 }
 const twelve = () => {
     
-    const tempSec = new Date().getSeconds();
-    const tempMin = new Date().getMinutes();
+    let tempSec = new Date().getSeconds();
+    let tempMin = new Date().getMinutes();
     let tempHour = new Date().getHours();
     ampm.innerHTML = tempHour > 11 ? `<h1>PM</h1>` : `<h1>AM</h1>`;
     tempHour = tempHour % 12;
@@ -54,9 +62,9 @@ const twelve = () => {
     if(tempSec == 0){
         seconds.innerHTML = `<h1>60</h1>`;
         minutes.innerHTML = tempMin < 10 ? `<h1>0${tempMin}</h1>` : `<h1>${tempMin}</h1>`;
-        
     } else if (tempSec < 10){
         seconds.innerHTML = `<h1>0${tempSec}</h1>`;
+        minutes.innerHTML = tempMin < 10 ? `<h1>0${tempMin}</h1>` : `<h1>${tempMin}</h1>`;
     }else {
         seconds.innerHTML = `<h1>${tempSec}</h1>`;
     }
@@ -69,6 +77,7 @@ const screenCorrector = () => {
         document.getElementById("main-body").style.paddingTop = "4em";
         document.getElementById("sec-colon").hidden = true;
         document.getElementById("seconds").hidden = true;
+        document.getElementById("minute-colon").hidden = !document.getElementById("minute-colon").hidden;
 
         mainTime.querySelectorAll("div>h1").forEach((element) => {
             element.style.fontSize = "3em"; 

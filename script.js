@@ -71,7 +71,7 @@ const screenCorrector = () => {
         document.getElementById("seconds").hidden = true;
 
         mainTime.querySelectorAll("div>h1").forEach((element) => {
-            element.style.fontSize = "4em"; 
+            element.style.fontSize = "3em"; 
         });
         mainContainer.style.height = "30vh";
         document.getElementById("date-container").innerHTML = `<h1>${date} ${month[new Date().getMonth()].slice(0,3)}, ${year}</h1>`;

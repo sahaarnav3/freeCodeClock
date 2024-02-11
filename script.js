@@ -90,6 +90,7 @@ const screenCorrector = () => {
         document.getElementById("main-body").style.paddingTop = "";
         document.getElementById("sec-colon").hidden = false;
         document.getElementById("seconds").hidden = false;
+        document.getElementById("minute-colon").hidden = false;
 
         mainTime.querySelectorAll("div>h1").forEach((element) => {
             element.style.fontSize = "10em"; 
